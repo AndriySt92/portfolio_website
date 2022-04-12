@@ -1,12 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.scss'
+import { Navbar } from './components'
+import { About, Header, Work } from './container'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <Navbar />
+      <Header />
+      <About />
+      <Work />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
