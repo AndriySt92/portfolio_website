@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import { Navbar } from './components'
-import { About, Header, Work } from './container'
+import { About, Footer, Header, Skills, Testimonial, Work } from './container'
 
 function App() {
   return (
@@ -10,6 +10,9 @@ function App() {
       <Header />
       <About />
       <Work />
+      <Skills />
+      <Testimonial />
+      <Footer />
     </div>
   )
 }
