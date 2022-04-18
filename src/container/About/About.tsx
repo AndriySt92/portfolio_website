@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import './about.scss'
 import { images } from '../../constants'
 import { motion } from 'framer-motion'
+import { AppWrap, MotionWrap } from '../../wrapper'
 
 interface IAbouts {
   title: string
@@ -9,7 +10,7 @@ interface IAbouts {
   img: string
 }
 
-export const About = () => {
+const About = () => {
 
   const abouts: Array<IAbouts> = useMemo(() => [
     { title: 'Web development', description: 'I am good web developer', img: images.about01 },
@@ -46,3 +47,9 @@ export const About = () => {
     </>
   )
 }
+
+export default AppWrap(
+  MotionWrap(About, 'app__about'),
+  'about',
+  'app__whitebg'
+);

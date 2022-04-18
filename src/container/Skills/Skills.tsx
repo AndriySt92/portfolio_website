@@ -4,6 +4,7 @@ import './skills.scss'
 import { images } from '../../constants'
 import { motion } from 'framer-motion'
 import ReactTooltip from 'react-tooltip'
+import { AppWrap, MotionWrap } from '../../wrapper'
 
 interface IExperiences {
   year: string
@@ -15,7 +16,7 @@ interface ISkills {
   img: string
 }
 
-export const Skills = () => {
+const Skills = () => {
 
   const skills: Array<ISkills> = useMemo(
     () => [
@@ -120,3 +121,10 @@ export const Skills = () => {
     </>
   )
 }
+
+
+export default AppWrap(
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg',
+);

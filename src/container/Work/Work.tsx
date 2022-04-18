@@ -5,8 +5,7 @@ import { images } from '../../constants'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
-// import { AppWrap, MotionWrap } from '../../wrapper';
-
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 interface IWorks {
   title: string
@@ -17,7 +16,7 @@ interface IWorks {
   description: string
 }
 
-export const Work = () => {
+const Work = () => {
   const [filteredWork, setFilteredWork] = useState<Array<IWorks> | []>([]);
   const [filter, setFilter] = useState<string>('All');
   const [animateCard, setAnimateCard] = useState<{y:number, opacity: number}>({ y: 0, opacity: 1 });
@@ -123,3 +122,9 @@ export const Work = () => {
     </>
   );
 };
+
+export default AppWrap(
+  MotionWrap(Work, 'app__works'),
+  'work',
+  'app__primarybg',
+);

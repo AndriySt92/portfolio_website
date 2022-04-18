@@ -3,6 +3,7 @@ import  './header.scss'
 
 import { images } from '../../constants';
 import { motion } from 'framer-motion';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 
 const scaleVariants = {
@@ -70,3 +71,5 @@ export const Header = () => {
   </div>
   )
 }
+
+export default AppWrap(Header, 'home');

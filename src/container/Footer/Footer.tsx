@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import './footer.scss'
 
 import { images } from '../../constants';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 
 
-export const Footer = () => {
+const Footer = () => {
   const [formData, setFormData] = useState<{username:string, email: string, message: string}>({ username: '', email: '', message: '' });
 
   const { username, email, message } = formData;
@@ -55,3 +56,9 @@ export const Footer = () => {
     </>
   );
 }
+
+export default AppWrap(
+  MotionWrap(Footer, 'app__footer'),
+  'contact',
+  'app__whitebg',
+);

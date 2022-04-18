@@ -4,6 +4,7 @@ import './testimonial.scss';
 import { images } from '../../constants'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 
 interface ITestimonials {
@@ -19,7 +20,7 @@ interface IBrands {
 }
 
 
-export const Testimonial = () => {
+const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);;
 
   const handleClick = (index: number) => {
@@ -82,3 +83,10 @@ export const Testimonial = () => {
     </>
   );
 };
+
+
+export default AppWrap(
+  MotionWrap(Testimonial, 'app__testimonial'),
+  'testimonial',
+  'app__primarybg'
+);
