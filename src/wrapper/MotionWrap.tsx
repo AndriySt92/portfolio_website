@@ -1,11 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface MotionWrapProps {
-  Component: React.FunctionComponent
-  classNames: string[]
-}
-
 export const MotionWrap = (Component: React.FunctionComponent, className:string) => function HOC() {
   return (
     <motion.div

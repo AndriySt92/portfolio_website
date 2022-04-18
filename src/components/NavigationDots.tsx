@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const NavigationDots: React.FC<{active: any}> = ({ active }) => (
+export const NavigationDots: React.FC<{active: string}> = ({ active }) => (
   <div className="app__navigation">
     {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map((item, index) => (
       <a

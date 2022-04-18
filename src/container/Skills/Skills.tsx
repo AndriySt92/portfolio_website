@@ -6,9 +6,10 @@ import { motion } from 'framer-motion'
 import ReactTooltip from 'react-tooltip'
 import { AppWrap, MotionWrap } from '../../wrapper'
 
-interface IExperiences {
-  year: string
-  works: Array<{ title: string; company: string; desc: string }>
+interface IWork {
+  title: string
+  company: string
+  desc: string 
 }
 
 interface ISkills {
@@ -17,7 +18,6 @@ interface ISkills {
 }
 
 const Skills = () => {
-
   const skills: Array<ISkills> = useMemo(
     () => [
       { title: 'GIT', img: images.git },
@@ -34,11 +34,8 @@ const Skills = () => {
     [],
   )
 
-  const experiences: Array<IExperiences> = useMemo(
-    () => [
-      {
-        year: '2021',
-        works: [
+  const experiences: any = {
+        2021: [
           {
             title: 'Frontend Developer',
             company: 'Google',
@@ -49,6 +46,8 @@ const Skills = () => {
             company: 'Twitter',
             desc: "I've worked as frontend developer",
           },
+        ],
+        2022: [
           {
             title: 'Backend Developer',
             company: 'EPAM',
@@ -60,10 +59,7 @@ const Skills = () => {
             desc: "I've worked as fullstack developer",
           },
         ],
-      },
-    ],
-    [],
-  )
+      }
 
   return (
     <>
@@ -77,7 +73,6 @@ const Skills = () => {
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
               key={skill.title}>
-              {/* <div className="app__flex" style={{ backgroundColor: skill.bgColor }}> */}
               <div className="app__flex">
                 <img src={skill.img} alt={skill.title} />
               </div>
@@ -86,13 +81,13 @@ const Skills = () => {
           ))}
         </motion.div>
         <div className="app__skills-exp">
-          {experiences.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.year}>
+          {Object.keys(experiences).map((key) => (
+            <motion.div className="app__skills-exp-item" key={key}>
               <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
+                <p className="bold-text">{key}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
+              {experiences[key].map((work: IWork)=> (
                   <>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
@@ -105,7 +100,7 @@ const Skills = () => {
                       <p className="p-text">{work.company}</p>
                     </motion.div>
                     <ReactTooltip
-                      id={work.title   }
+                      id={work.title}
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip">
@@ -122,9 +117,4 @@ const Skills = () => {
   )
 }
 
-
-export default AppWrap(
-  MotionWrap(Skills, 'app__skills'),
-  'skills',
-  'app__whitebg',
-);
+export default AppWrap(MotionWrap(Skills, 'app__skills'), 'skills', 'app__whitebg')
